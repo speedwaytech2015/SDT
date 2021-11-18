@@ -3,6 +3,7 @@ package qa.sdt.pages;
 import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,7 +32,7 @@ public class LogPage extends TestBase{
 	    
 	//Initializing the Page Objects:
 	public LogPage(){
-		super();
+		
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -45,7 +46,7 @@ public class LogPage extends TestBase{
 	}
 	
 	public void login(){
-		username.sendKeys(prop.getProperty("ur"));
+		username.sendKeys(prop.getProperty("un"));
 		password.sendKeys(prop.getProperty("pwd"));
 		//loginBtn.click();
 		    	JavascriptExecutor js = (JavascriptExecutor)driver;
