@@ -23,8 +23,9 @@ public class TestBase {
 	
 	public TestBase(){
 		try {
-			prop = new Properties();
+			
 			FileInputStream ip = new FileInputStream("C:\\Users\\user\\eclipse-workspace\\Automation-Frawork-Batch101\\src\\main\\java\\qa\\sdt\\config\\config.properties");
+			prop = new Properties();
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -38,8 +39,7 @@ public class TestBase {
 		String browserName = prop.getProperty("browser");
 		
 		if(browserName.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver",
-					"E:\\chromedriver.exe");	
+			WebDriverManager.chromedriver().setup();	
 			driver = new ChromeDriver(); 
 		}
 		else if(browserName.equals("FF")){
@@ -50,6 +50,10 @@ public class TestBase {
 				
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
+
+
+		//driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		driver.get(prop.getProperty("URL"));

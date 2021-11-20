@@ -17,9 +17,8 @@ public class LoginPageTest extends TestBase {
 	public void setUp() 
 	
 	{
-		loginPage = new LogPage();
 		initialization();
-			
+		loginPage = new LogPage();		
 	}
 	
 	
